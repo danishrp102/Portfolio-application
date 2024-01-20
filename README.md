@@ -19,6 +19,7 @@ API routes:
   -> Since a csv file is to be processed, click on 'form-data'. This takes in a key value pair where the key is the file name variable accepted by the controller layer and the value is the csv file.  
   -> In my code, I am taking the file input by the variable name 'file' - so for the key part, tyep 'file' and check the adjacent box. Set the input type from Text to File.  
   -> Finally, upload the csv file in the value field and hit Send.  
+  -> If the update was a success, an integer denoting the total number of records updated is returned as a response.
   
 
   <img width="1369" alt="Screenshot 2024-01-19 at 2 13 55 AM" src="https://github.com/danishrp102/Portfolio-application/assets/75444712/1eb522ff-2fef-429c-817e-1a4d5e5dd356">  
@@ -27,7 +28,7 @@ API routes:
   
 3) /api/v1/trade  (POST)  
 
-  -> Takes userId, stockId, typeOfTransaction (buy/sell) and quantity to establish a trade  
+  -> Takes userId, stockId, typeOfTransaction (buy/sell) and quantity of shares to establish a trade  
 
   <img width="1371" alt="Screenshot 2024-01-19 at 2 14 57 AM" src="https://github.com/danishrp102/Portfolio-application/assets/75444712/acd88ab0-1add-4e5d-8412-13e420d854e8">  
 
@@ -35,7 +36,7 @@ API routes:
   
 4) /api/v1/portfolio/{userId}  (GET)  
 
-  -> Takes userId and returns the current holdings of the user 'userId'  
+  -> Takes userId as the request parameter and returns the current holdings of the user 'userId'  
 
   <img width="1362" alt="Screenshot 2024-01-19 at 2 16 01 AM" src="https://github.com/danishrp102/Portfolio-application/assets/75444712/66b654d0-cdbe-47bb-a572-883b7409ffd2">  
 
