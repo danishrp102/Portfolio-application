@@ -8,6 +8,7 @@ import com.danishpinto.project1.portfolioapplication.exception.*;
 import com.danishpinto.project1.portfolioapplication.repository.StockRepository;
 import com.danishpinto.project1.portfolioapplication.repository.TradedStockRepository;
 import com.danishpinto.project1.portfolioapplication.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class TradeService {
     @Autowired
     TradedStockRepository tradedStockRepository;
 
+    @Transactional()
     public void makeTrade(TradeBean trade) {
 
         // sell -> if the final qty is 0, delete the stock entry from the list of TradedStock and update the User entity. Also delete the TradedStock from the database.

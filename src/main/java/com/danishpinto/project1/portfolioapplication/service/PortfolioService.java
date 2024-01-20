@@ -9,6 +9,7 @@ import com.danishpinto.project1.portfolioapplication.exception.UserNotFoundExcep
 import com.danishpinto.project1.portfolioapplication.repository.StockRepository;
 import com.danishpinto.project1.portfolioapplication.repository.TradedStockRepository;
 import com.danishpinto.project1.portfolioapplication.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class PortfolioService {
     @Autowired
     TradedStockRepository tradedStockRepository;
 
+    @Transactional()
     public PortfolioDTO getAllHoldings(Integer userId) {
         Optional<User> user = userRepository.findById(userId);
         if(user.isEmpty()) {

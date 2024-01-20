@@ -26,8 +26,8 @@ public class StockController {
         return ResponseEntity.ok(stockService.uploadStocks(file));
     }
 
-    @GetMapping(path = "/retrieve")
-    public List<Stock> getStocks() {
-        return stockService.retrieveAllStocks();
+    @GetMapping(path = "/{stockId}")
+    public Stock getStocks(@PathVariable String stockId) {
+        return stockService.retreiveStock(stockId);
     }
 }

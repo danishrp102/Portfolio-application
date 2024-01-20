@@ -1,6 +1,7 @@
 package com.danishpinto.project1.portfolioapplication.service;
 
 import com.danishpinto.project1.portfolioapplication.entity.Stock;
+import com.danishpinto.project1.portfolioapplication.exception.StockNotFoundException;
 import com.danishpinto.project1.portfolioapplication.repository.StockRepository;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -50,7 +52,11 @@ public class StockService {
         }
     }
 
-    public List<Stock> retrieveAllStocks() {
-        return stockRepository.findAll();
+    public Stock retreiveStock(String stockId) {
+        Optional<Stock> possibleStock = stockRepository.findById(stockId);
+        if(possibleStock.isEmpty())
+            throw new StockNotFoundException("stockId: " + stockId);
+
+        return possibleStock.get();
     }
 }
