@@ -3,7 +3,7 @@ A stocks portfolio backend application to trade and view stocks, view portfolio 
 
 API routes:  
 
-/api/v1/stocks/{stockId}  (GET)  
+1) /api/v1/stocks/{stockId}  (GET)  
 
   -> Gives the details of a stock with id 'stockId'  
 
@@ -11,7 +11,7 @@ API routes:
 
 
   
-/api/v1/stocks/upload  (POST)  
+2) /api/v1/stocks/upload  (POST)  
 
 
   -> Parses the bhavcopy csv file and updates the current prices of all the stocks in the database.  
@@ -25,7 +25,7 @@ API routes:
 
 
   
-/api/v1/trade  (POST)  
+3) /api/v1/trade  (POST)  
 
   -> Takes userId, stockId, typeOfTransaction (buy/sell) and quantity to establish a trade  
 
@@ -33,7 +33,7 @@ API routes:
 
   
   
-/api/v1/portfolio/{userId}  (GET)  
+4) /api/v1/portfolio/{userId}  (GET)  
 
   -> Takes userId and returns the current holdings of the user 'userId'  
 
